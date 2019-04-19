@@ -21,6 +21,7 @@ printf("\n\nNext person\n");
 }
 int main()
 {
+
 int n;
 billing d[100],t;
 printf("enter no of students for billing\n");
