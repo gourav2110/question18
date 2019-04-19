@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<pthread.h>
 #include<semaphore.h>
+#include<unistd.h>
 #include<string.h>
 pthread_t t1;
 pthread_mutex_t counter;
@@ -27,7 +28,7 @@ printf("enter no of students for billing\n");
 scanf("%d",&n);
 printf("enter the students for billing with their positions in a queue\n");
 printf("Also enter the no of gifts an individual has for billing\n");
-for(int i=0;i<n;i++)
+for(int i=1;i<(n+1);i++)
 {
 scanf("%s",d[i].name);
 scanf("%d",&d[i].pos);
@@ -35,9 +36,9 @@ scanf("%d",&d[i].ngift);
 }
 printf("\nsort them on the basis of no of gifts they have for billing\n");
 printf("if any of them has equal no of gifts then sort w.r.t position\n");
-for(int i=0;i<n;i++)
+for(int i=1;i<(n+1);i++)
 {
-for(int j=0;j<n-i;j++)
+for(int j=1;j<(n+1-i);j++)
 {
 if(d[j].ngift<d[j+1].ngift)
 {
@@ -56,8 +57,9 @@ d[j+1]=t;
 }
 }
 }
-for(int i=0;i<n;i++)
+for(int i=1;i<(n+1);i++)
 {
+printf("\n");
 printf("%s with %d gifts ",d[i].name,d[i].ngift);
 }
 pthread_exit(NULL);
